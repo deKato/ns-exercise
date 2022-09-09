@@ -10,7 +10,7 @@ export const StyledCard = styled(({ children, ...rest }) => (
   min-width: fit-content;
   padding: 24px;
   height: fit-content;
-  max-height: 80%;
+  max-height: 70%;
   display: flex;
   flex-direction: column;
 
