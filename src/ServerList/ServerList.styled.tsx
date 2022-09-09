@@ -46,6 +46,8 @@ export const StyledTable = styled.table`
     border-top-right-radius: 8px;
   }
   th {
+    position: sticky;
+    top: 0;
     padding: 0.5em;
     background: #aaaaaa;
     line-height: 1.5em;
