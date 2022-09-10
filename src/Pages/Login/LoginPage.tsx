@@ -9,7 +9,7 @@ import {
   StyledLoginHeader,
 } from "./LoginPage.styled";
 
-const Login = () => {
+const LoginPage = () => {
   const authCtx = useContext(AuthContext);
 
   if (authCtx.isLoggedIn) {
@@ -36,4 +36,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

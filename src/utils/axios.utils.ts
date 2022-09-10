@@ -8,11 +8,8 @@ const request = async ({ ...options }) => {
   )}`;
 
   const onSuccess = (response: any) => response;
-  const onError = (error: any) => {
-    return error;
-  };
 
-  return await client(options).then(onSuccess).catch(onError);
+  return await client(options).then(onSuccess);
 };
 
 export default request;

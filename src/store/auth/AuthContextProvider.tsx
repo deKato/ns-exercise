@@ -1,7 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { ReactNode } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { ReactNode, useState } from "react";
 import AuthContext from "./AuthContext";
 
 interface IAuthContextProviderProps {
@@ -11,7 +9,6 @@ interface IAuthContextProviderProps {
 export const AuthContextProvider = (props: IAuthContextProviderProps) => {
   const [token, setToken] = useState<string>(sessionStorage.getItem("token"));
   const [loginError, setLoginError] = useState();
-  const [isLoggedOut, setIsLoggedOut] = useState<boolean>(false);
   const isLoggedIn = !!token;
 
   const login = async (username: string, password: string) => {
@@ -25,24 +22,26 @@ export const AuthContextProvider = (props: IAuthContextProviderProps) => {
         "Content-Type": "application/json;charset=utf-8",
       },
     };
-    const response: any = await axios
+    await axios
       .post("https://playground.tesonet.lt/v1/tokens", data, config)
+      .then((res) => {
+        sessionStorage.setItem("token", res.data.token);
+        setToken(res.data.token);
+      })
       .catch((error) => {
         setLoginError(error);
       });
-    sessionStorage.setItem("token", response.data.token);
-    setToken(response.data.token);
+
   };
 
   const logout = () => {
     sessionStorage.removeItem("token");
     setToken(undefined);
-    setIsLoggedOut(true);
   };
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, login, logout, isLoggedOut, loginError }}
+      value={{ isLoggedIn, login, logout, loginError }}
     >
       {props.children}
     </AuthContext.Provider>

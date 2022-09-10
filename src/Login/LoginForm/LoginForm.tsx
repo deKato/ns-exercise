@@ -69,7 +69,6 @@ const LoginForm = () => {
       <form onSubmit={onSubmitHandler} style={{ width: "90%" }}>
         <FormInput
           type="text"
-          label="Username"
           errorMessage={usernameError}
           value={username}
           name={"username"}
@@ -78,7 +77,6 @@ const LoginForm = () => {
         />
         <FormInput
           type={"password"}
-          label={"Password"}
           errorMessage={passwordError}
           value={password}
           name={"password"}

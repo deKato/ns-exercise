@@ -1,11 +1,10 @@
 import React from "react";
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Button from "../../Common/Button/Button";
 import { Card } from "../../Common/Card/Card";
 import MenuIcon from "../../Common/Icons/MenuIcon";
 import ServerList from "../../ServerList/ServerList";
-import ServerList2 from "../../ServerList/ServerList2";
 import AuthContext from "../../store/auth/AuthContext";
 import {
   StyledBackground,
@@ -17,11 +16,14 @@ import {
 
 const ServerListPage = () => {
   const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const logoutAndRedirect = () => {
     logout();
-    return <Navigate to="/logout" />;
+    return navigate('/logout')
+    //return <Navigate to="/logout" />;
   };
+
   return (
     <StyledBackground>
       <StyledPageHeader>
@@ -43,7 +45,7 @@ const ServerListPage = () => {
       <StyledServerListContainer>
         <Card>
           <StyledServerListHeader>Server list</StyledServerListHeader>
-          <ServerList2 />
+          <ServerList />
         </Card>
       </StyledServerListContainer>
     </StyledBackground>
