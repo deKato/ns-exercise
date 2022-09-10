@@ -11,7 +11,7 @@ const FormInput = (props: FormInputProps) => {
   const { errorMessage, ...inputProps } = props;
   return (
     <StyledFormInputContainer>
-      <Input {...inputProps} />
+      <Input {...inputProps} $hasError={!!errorMessage}/>
       {errorMessage && <ValidationError text={errorMessage} />}
     </StyledFormInputContainer>
   );

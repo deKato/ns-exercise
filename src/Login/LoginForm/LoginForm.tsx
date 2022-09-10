@@ -29,11 +29,11 @@ const LoginForm = () => {
 
   const showErrors = () => {
     if (checkIfValueEmpty(username)) {
-      setUsernameError("Username cannot be empty");
+      setUsernameError("Username is required");
     }
 
     if (checkIfValueEmpty(password)) {
-      setPasswordError("Password cannot be empty");
+      setPasswordError("Password is required");
     }
   };
 
@@ -64,7 +64,7 @@ const LoginForm = () => {
   return (
     <>
       {authCtx.loginError && (
-        <StyledLoginError>Invalid credentials</StyledLoginError>
+        <StyledLoginError>Invalid username or password</StyledLoginError>
       )}
       <form onSubmit={onSubmitHandler} style={{ width: "90%" }}>
         <FormInput

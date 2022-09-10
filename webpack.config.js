@@ -26,9 +26,9 @@ module.exports = {
   },
   resolve: { extensions: [".jsx", ".ts", ".js", ".tsx"] },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html", favicon: "./src/assets/favicon.ico" }),
     new ProvidePlugin({
       React: "react", // automatically import react where needed
-    }),
+    })
   ],
 };

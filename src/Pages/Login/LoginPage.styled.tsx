@@ -5,6 +5,7 @@ export const StyledLoginBackground = styled.div`
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100%;
+  overflow: auto;
 `;
 
 export const StyledLoginCardContainer = styled.div`
@@ -12,19 +13,12 @@ export const StyledLoginCardContainer = styled.div`
   justify-content: center;
   height: 100%;
   align-items: center;
-
-  /* @media only screen and (max-width: 768px) {
-    width: 100%;
-  } */
-
-  /* @media only screen and (min-width: 769px) {
-    align-items: center;
-  } */
 `;
 
 export const StyledLoginHeader = styled.h1`
   white-space: nowrap;
   font-family: "Courier";
+  letter-spacing: 3px;
   font-size: 3rem;
   font-weight: 600;
   color: #5e87b8;
@@ -41,4 +35,11 @@ export const StyledLoginHeader = styled.h1`
       border-color: #000;
     }
   }
+`;
+
+export const StyledLoginFormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;

@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 import { server } from "../../mocks/server";
 import AuthContext from "../../store/auth/AuthContext";
-import sortStore from "../../store/redux";
+import store from "../../store/redux";
 import ServerListPage from "./ServerListPage";
 import {
   Route,
@@ -29,7 +29,7 @@ describe("Server list page component", () => {
     );
     await act(() => {
       render(
-        <Provider store={sortStore}>
+        <Provider store={store}>
           <QueryClientProvider client={new QueryClient()}>
             <AuthContext.Provider value={{ logout: () => {} }}>
             <Router>
@@ -44,37 +44,7 @@ describe("Server list page component", () => {
       );
     });
     expect(screen.getByText("Menu")).toBeInTheDocument();
-    expect(screen.getByText("Server list")).toBeInTheDocument();
-  });
-
-  it("should logout", async () => {
-    const user = userEvent.setup();
-    server.use(
-        rest.get("https://playground.tesonet.lt/v1/servers", (_req, res, ctx) => {
-          return res.once(
-            ctx.status(200),
-            ctx.json([{ name: "server 1", distance: "55" }])
-          );
-        })
-      );
-    render(
-      <Provider store={sortStore}>
-        <QueryClientProvider client={new QueryClient()}>
-          <AuthContextProvider>
-            <Router>
-              <Routes>
-                <Route path="/" element={<ServerListPage />} />
-                <Route path="/logout" element={<div>Logout page</div>} />
-              </Routes>
-            </Router>
-          </AuthContextProvider>
-        </QueryClientProvider>
-      </Provider>
-    );
-
-    expect(await screen.findByText('server 1')).toBeInTheDocument();
-    await user.click(screen.getByText('Logout'));
-    expect(await screen.findByText('Logout page')).toBeInTheDocument();
-
+    expect(screen.getByText("Name")).toBeInTheDocument();
+    expect(screen.getByText("Distance")).toBeInTheDocument();
   });
 });

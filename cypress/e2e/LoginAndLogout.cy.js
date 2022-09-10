@@ -19,11 +19,14 @@ describe('Login and logout', () => {
         cy.get('input[type="password"]').type(password);
         cy.get('button[type="submit"]').click();
         expect(sessionStorage.getItem('token')).not.to.be.undefined;
-        cy.get('h1').should('contain', 'Server list');
+        cy.get('tr').should('contain', 'Name');
+        cy.get('tr').should('contain', 'Distance');
+
     })
 
     it('should logout', () => {
-        cy.get('.popover__wrapper').get('.popover__content').get('button').click({force: true});
+        cy.get('.popover__title').click();
+        cy.get('.popover__content').get('button').click();
         cy.get('h1').should('contain', "You've been logged out");
         cy.get('button').should('contain', 'Go to login').then(() => [
             expect(sessionStorage.getItem('token')).to.be.null

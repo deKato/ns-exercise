@@ -6,13 +6,15 @@ export const StyledCard = styled(({ children, ...rest }) => (
 ))`
   border-radius: 8px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );;
   min-width: fit-content;
   padding: 24px;
   height: fit-content;
-  max-height: 70%;
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  margin-bottom: 24px;
 
   @media only screen and (max-width: 768px) {
     width: 80%;

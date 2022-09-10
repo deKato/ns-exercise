@@ -15,11 +15,14 @@ describe('Login form component', () => {
     })
 
     it('should validate if fields are empty', async () => {
+        const usernameError = 'Username is required';
+        const passwordError = 'Password is required';
+
         const user = userEvent.setup();
         renderLoginForm();
         await user.click(screen.getByText('Login'));
-        expect(screen.getByText('Username cannot be empty')).toBeInTheDocument();
-        expect(screen.getByText('Password cannot be empty')).toBeInTheDocument();
+        expect(screen.getByText(usernameError)).toBeInTheDocument();
+        expect(screen.getByText(passwordError)).toBeInTheDocument();
 
         await user.click(screen.getByPlaceholderText('Username'));
         await user.keyboard('   ')
@@ -27,21 +30,21 @@ describe('Login form component', () => {
         await user.keyboard('   ')
 
         await user.click(screen.getByText('Login'));
-        expect(screen.getByText('Username cannot be empty')).toBeInTheDocument();
-        expect(screen.getByText('Password cannot be empty')).toBeInTheDocument();
+        expect(screen.getByText(usernameError)).toBeInTheDocument();
+        expect(screen.getByText(passwordError)).toBeInTheDocument();
 
         await user.click(screen.getByPlaceholderText('Username'));
         await user.keyboard('user')
         await user.click(screen.getByText('Login'));
-        expect(screen.queryByText('Username cannot be empty')).not.toBeInTheDocument();
-        expect(screen.getByText('Password cannot be empty')).toBeInTheDocument();
+        expect(screen.queryByText(usernameError)).not.toBeInTheDocument();
+        expect(screen.getByText(passwordError)).toBeInTheDocument();
 
         await user.clear(screen.getByPlaceholderText('Username'));
         await user.click(screen.getByPlaceholderText('Password'));
         await user.keyboard('psw')
         await user.click(screen.getByText('Login'));
-        expect(screen.getByText('Username cannot be empty')).toBeInTheDocument();
-        expect(screen.queryByText('Password cannot be empty')).not.toBeInTheDocument();
+        expect(screen.getByText(usernameError)).toBeInTheDocument();
+        expect(screen.queryByText(passwordError)).not.toBeInTheDocument();
     })
 
     it('should login to app', async () => {
@@ -78,7 +81,7 @@ describe('Login form component', () => {
         await user.click(screen.getByPlaceholderText('Password'));
         await user.keyboard('psw')
         await user.click(screen.getByText('Login'));
-        expect(await screen.findByText('Invalid credentials')).toBeInTheDocument();
+        expect(await screen.findByText('Invalid username or password')).toBeInTheDocument();
     })
 })
 

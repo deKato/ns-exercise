@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Spinner from "../Common/Spinner/Spinner";
 import { IRootState, ISortParams } from "../store/redux";
 import { sortActions } from "../store/redux/sort";
 import {
@@ -39,7 +40,7 @@ const ServerList = () => {
   const dispatch = useDispatch();
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Spinner/>;
   }
 
   if (isError) {

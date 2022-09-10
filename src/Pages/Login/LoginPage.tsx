@@ -6,6 +6,7 @@ import AuthContext from "../../store/auth/AuthContext";
 import {
   StyledLoginBackground,
   StyledLoginCardContainer,
+  StyledLoginFormContainer,
   StyledLoginHeader,
 } from "./LoginPage.styled";
 
@@ -19,17 +20,10 @@ const LoginPage = () => {
     <StyledLoginBackground>
       <StyledLoginCardContainer>
         <Card>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+          <StyledLoginFormContainer>
             <StyledLoginHeader>Login</StyledLoginHeader>
             <LoginForm />
-          </div>
+          </StyledLoginFormContainer>
         </Card>
       </StyledLoginCardContainer>
     </StyledLoginBackground>

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Login and logout', () => {
+describe('LTest protected route', () => {
     before(() => {
         cy.window().then((win) => {
             win.sessionStorage.clear()
@@ -26,6 +26,7 @@ describe('Login and logout', () => {
         })
         cy.visit('http://localhost:3001/server-list');
         cy.location('pathname').should('include', '/server-list')
-        cy.get('h1').should('contain', 'Server list');
+        cy.get('tr').should('contain', 'Name');
+        cy.get('tr').should('contain', 'Distance');
     })
 })

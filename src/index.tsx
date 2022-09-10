@@ -2,12 +2,12 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App";
-import sortStore from "./store/redux";
+import store from "./store/redux";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
-    <Provider store={sortStore}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>

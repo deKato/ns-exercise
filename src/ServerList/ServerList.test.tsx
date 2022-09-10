@@ -5,7 +5,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 import { server } from "../mocks/server";
-import sortStore from "../store/redux";
+import store from "../store/redux";
 import ServerList from "./ServerList";
 
 const serverListResponse = [
@@ -25,7 +25,7 @@ describe("Server list component", () => {
       })
     );
     render(
-      <Provider store={sortStore}>
+      <Provider store={store}>
         <QueryClientProvider client={new QueryClient()}>
           <ServerList />
         </QueryClientProvider>
@@ -87,7 +87,7 @@ describe("Server list component", () => {
       })
     );
     render(
-      <Provider store={sortStore}>
+      <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <ServerList />
         </QueryClientProvider>
