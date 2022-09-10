@@ -56,7 +56,7 @@ const ServerList = () => {
         <tbody>
           <tr>
             <StyledTableHeader onClick={() => toggleSortHandler("name")}>
-              <div>
+              <div data-testid="name-header">
                 <span>Name</span>
                 <StyledArrowContainer
                   $isAscending={sortOrder.order === "asc" ? true : false}
@@ -67,7 +67,7 @@ const ServerList = () => {
               </div>
             </StyledTableHeader>
             <StyledTableHeader onClick={() => toggleSortHandler("distance")}>
-              <div>
+              <div data-testid="distance-header">
                 <span>Distance</span>
                 <StyledArrowContainer
                   $isAscending={sortOrder.order === "asc" ? true : false}
