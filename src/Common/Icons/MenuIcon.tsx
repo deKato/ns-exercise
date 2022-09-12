@@ -3,6 +3,7 @@ import React from "react";
 const MenuIcon = () => {
   return (
     <svg
+      data-testid="menu-icon"
       xmlns="http://www.w3.org/2000/svg"
       height="24"
       viewBox="0 0 24 24"

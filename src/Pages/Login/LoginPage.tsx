@@ -6,10 +6,11 @@ import AuthContext from "../../store/auth/AuthContext";
 import {
   StyledLoginBackground,
   StyledLoginCardContainer,
+  StyledLoginFormContainer,
   StyledLoginHeader,
 } from "./LoginPage.styled";
 
-const Login = () => {
+const LoginPage = () => {
   const authCtx = useContext(AuthContext);
 
   if (authCtx.isLoggedIn) {
@@ -19,21 +20,14 @@ const Login = () => {
     <StyledLoginBackground>
       <StyledLoginCardContainer>
         <Card>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+          <StyledLoginFormContainer>
             <StyledLoginHeader>Login</StyledLoginHeader>
             <LoginForm />
-          </div>
+          </StyledLoginFormContainer>
         </Card>
       </StyledLoginCardContainer>
     </StyledLoginBackground>
   );
 };
 
-export default Login;
+export default LoginPage;

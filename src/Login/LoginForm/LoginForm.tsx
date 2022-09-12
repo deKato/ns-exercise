@@ -29,11 +29,11 @@ const LoginForm = () => {
 
   const showErrors = () => {
     if (checkIfValueEmpty(username)) {
-      setUsernameError("Username cannot be empty");
+      setUsernameError("Username is required");
     }
 
     if (checkIfValueEmpty(password)) {
-      setPasswordError("Password cannot be empty");
+      setPasswordError("Password is required");
     }
   };
 
@@ -64,12 +64,11 @@ const LoginForm = () => {
   return (
     <>
       {authCtx.loginError && (
-        <StyledLoginError>Invalid credentials</StyledLoginError>
+        <StyledLoginError>Invalid username or password</StyledLoginError>
       )}
       <form onSubmit={onSubmitHandler} style={{ width: "90%" }}>
         <FormInput
           type="text"
-          label="Username"
           errorMessage={usernameError}
           value={username}
           name={"username"}
@@ -78,15 +77,14 @@ const LoginForm = () => {
         />
         <FormInput
           type={"password"}
-          label={"Password"}
           errorMessage={passwordError}
           value={password}
           name={"password"}
           placeholder={"Password"}
           onChange={onInputChangeHandler}
         />
-        <Button title="Login" type="submit">
-          Login
+        <Button title="Login" type="submit" disabled={authCtx.loginInProgress}>
+          {authCtx.loginInProgress ? "Logging in...." : "Login"}
         </Button>
       </form>
     </>

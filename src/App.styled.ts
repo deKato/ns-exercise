@@ -6,10 +6,6 @@ input, label {
 }
 
 body {
-    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite; */
-    overflow-y: hidden;
     margin: 0;
     height: 100vh;
     font-family: Roboto, Helvetica, sans-serif;

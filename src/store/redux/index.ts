@@ -12,6 +12,6 @@ export interface IRootState {
   };
 }
 
-const sortStore = configureStore({ reducer: { sort: sortReducer } });
+const store = configureStore({ reducer: { sort: sortReducer } });
 
-export default sortStore;
+export default store;

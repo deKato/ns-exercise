@@ -5,6 +5,7 @@ export const StyledLogoutBackground = styled.div`
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100%;
+  overflow: auto;
 `;
 
 export const StyledLogoutCardContainer = styled.div`

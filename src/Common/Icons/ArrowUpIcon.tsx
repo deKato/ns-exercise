@@ -3,6 +3,7 @@ import React from "react";
 const ArrowUpIcon = () => {
   return (
     <svg
+    data-testid='arrow-icon'
       xmlns="http://www.w3.org/2000/svg"
       height="24"
       viewBox="0 0 24 24"
@@ -10,9 +11,7 @@ const ArrowUpIcon = () => {
       style={{
         fontSize: "1em",
         width: "1em",
-        height: "1em",
-        transform: `${(props: any) =>
-          props.isAscending ? "" : "rotate(180deg)"}`,
+        height: "1em"
       }}
     >
       <path d="M0 0h24v24H0V0z" fill="none" />

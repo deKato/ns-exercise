@@ -7,18 +7,10 @@ const PrivateRoute = () => {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
 
-  const navigateAway = () => {
-    if (authCtx.isLoggedOut) {
-      return <Navigate to={"/logout"} state={{ from: location }} replace />;
-    } else {
-      return <Navigate to={"/login"} state={{ from: location }} replace />;
-    }
-  };
-
   if (isLoggedIn) {
     return <Outlet />;
   } else {
-    return navigateAway();
+    return <Navigate to={"/login"} state={{ from: location }} replace />;
   }
 };
 

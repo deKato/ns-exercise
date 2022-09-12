@@ -22,11 +22,25 @@ export const StyledArrowUp = styled(ArrowUpIcon)<{ $isAscending?: boolean }>`
 `;
 
 export const StyledTable = styled.table`
+margin-top: 24px;
   display: block;
   overflow-y: auto;
   border-radius: 8px;
   border-spacing: 0;
   border-collapse: collapse;
+  min-height: 200px;
+  opacity: 0.7;
+  height: 80vh;
+
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: 769px) {
+    width: 40vw;
+    max-width: 500px;
+  }
+  
   tbody {
     width: 100%;
     display: table;
