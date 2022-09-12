@@ -20,4 +20,7 @@ export const StyledButton = styled.button`
   background: #7a579f;
   border-radius: 12px;
   letter-spacing: 1px;
+  :disabled {
+    opacity: 0.5;
+  }
 `;

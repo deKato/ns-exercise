@@ -83,8 +83,8 @@ const LoginForm = () => {
           placeholder={"Password"}
           onChange={onInputChangeHandler}
         />
-        <Button title="Login" type="submit">
-          Login
+        <Button title="Login" type="submit" disabled={authCtx.loginInProgress}>
+          {authCtx.loginInProgress ? "Logging in...." : "Login"}
         </Button>
       </form>
     </>
