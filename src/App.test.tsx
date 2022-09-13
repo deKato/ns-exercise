@@ -8,4 +8,3 @@ describe("App component", () => {
     expect(screen.getAllByText("Login")).toHaveLength(2);
   });
 });
-

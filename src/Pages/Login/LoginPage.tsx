@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { Card } from "../../Common/Card/Card";
-import LoginForm from "../../Login/LoginForm/LoginForm";
+import { Card } from "../../Components/Common/Card/Card";
+import LoginForm from "../../Components/LoginForm/LoginForm";
 import AuthContext from "../../store/auth/AuthContext";
 import {
-  StyledLoginBackground,
-  StyledLoginCardContainer,
-  StyledLoginFormContainer,
-  StyledLoginHeader,
-} from "./LoginPage.styled";
+  StyledCardContainer,
+  StyledCardContentContainer,
+  StyledLoginLogoutBackground,
+} from "../CommonPage.styles";
+import { StyledLoginHeader } from "./LoginPage.styled";
 
 const LoginPage = () => {
   const authCtx = useContext(AuthContext);
@@ -17,16 +17,16 @@ const LoginPage = () => {
     return <Navigate to="/server-list" />;
   }
   return (
-    <StyledLoginBackground>
-      <StyledLoginCardContainer>
+    <StyledLoginLogoutBackground>
+      <StyledCardContainer>
         <Card>
-          <StyledLoginFormContainer>
+          <StyledCardContentContainer>
             <StyledLoginHeader>Login</StyledLoginHeader>
             <LoginForm />
-          </StyledLoginFormContainer>
+          </StyledCardContentContainer>
         </Card>
-      </StyledLoginCardContainer>
-    </StyledLoginBackground>
+      </StyledCardContainer>
+    </StyledLoginLogoutBackground>
   );
 };
 
