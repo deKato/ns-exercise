@@ -1,33 +1,27 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import Button from "../../Common/Button/Button";
-import { Card } from "../../Common/Card/Card";
+import { useNavigate } from "react-router-dom";
+import Button from "../../Components/Common/Button/Button";
+import { Card } from "../../Components/Common/Card/Card";
 import {
-  StyledLogoutBackground,
-  StyledLogoutCardContainer,
-  StyledLogoutHeader,
-} from "./Logout.styled";
+  StyledCardContainer,
+  StyledCardContentContainer,
+  StyledHeader,
+  StyledLoginLogoutBackground,
+} from "../CommonPage.styles";
 
 const Logout = () => {
   const navigate = useNavigate();
   return (
-    <StyledLogoutBackground>
-      <StyledLogoutCardContainer>
+    <StyledLoginLogoutBackground>
+      <StyledCardContainer>
         <Card>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <StyledLogoutHeader>You've been logged out</StyledLogoutHeader>
+          <StyledCardContentContainer>
+            <StyledHeader>You've been logged out</StyledHeader>
             <Button onClick={() => navigate("/login")}>Go to login</Button>
-          </div>
+          </StyledCardContentContainer>
         </Card>
-      </StyledLogoutCardContainer>
-    </StyledLogoutBackground>
+      </StyledCardContainer>
+    </StyledLoginLogoutBackground>
   );
 };
 

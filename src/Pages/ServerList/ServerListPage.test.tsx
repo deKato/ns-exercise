@@ -32,12 +32,12 @@ describe("Server list page component", () => {
         <Provider store={store}>
           <QueryClientProvider client={new QueryClient()}>
             <AuthContext.Provider value={{ logout: () => {} }}>
-            <Router>
-              <Routes>
-                <Route path="/" element={<ServerListPage />} />
-                <Route path="/logout" element={<div>Logout page</div>} />
-              </Routes>
-            </Router>
+              <Router>
+                <Routes>
+                  <Route path="/" element={<ServerListPage />} />
+                  <Route path="/logout" element={<div>Logout page</div>} />
+                </Routes>
+              </Router>
             </AuthContext.Provider>
           </QueryClientProvider>
         </Provider>

@@ -25,6 +25,6 @@ describe("Logout component", () => {
     );
     expect(screen.getByText("You've been logged out")).toBeInTheDocument();
     await user.click(screen.getByText("Go to login"));
-    expect(screen.getByText('Login page')).toBeInTheDocument();
+    expect(screen.getByText("Login page")).toBeInTheDocument();
   });
 });

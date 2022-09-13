@@ -22,4 +22,3 @@ export const StyledServerListContainer = styled.div`
   align-items: center;
   height: 100%;
 `;
-
